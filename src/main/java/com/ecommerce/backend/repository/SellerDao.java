@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface sellerDao extends JpaRepository<Seller, Integer> {
+public interface SellerDao extends JpaRepository<Seller, Integer> {
     Optional<Seller> findByMobile(String mobile);
 }
