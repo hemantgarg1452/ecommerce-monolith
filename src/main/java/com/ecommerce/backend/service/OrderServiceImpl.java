@@ -28,7 +28,7 @@ public class OrderServiceImpl implements OrderService{
 
 
     @Override
-    public Order saveOrder(OrderDTO odto, String token) throws LoginException, OrderException {
+    public Order saveOrder(OrderDTO odto, String token) throws LoginException, OrderException, javax.security.auth.login.LoginException {
 
         Order newOrder= new Order();
 
@@ -47,7 +47,7 @@ public class OrderServiceImpl implements OrderService{
 
 
 
-            if(productsInCart.size()!=0) {
+            if(!productsInCart.isEmpty()) {
                 if((usersCardNumber.equals(userGivenCardNumber))
                         && (odto.getCardNumber().getCardValidity().equals(loggedInCustomer.getCreditCard().getCardValidity())
                         && (odto.getCardNumber().getCardCVV().equals(loggedInCustomer.getCreditCard().getCardCVV())))) {
@@ -108,7 +108,7 @@ public class OrderServiceImpl implements OrderService{
     public List<Order> getAllOrders() throws OrderException {
         // TODO Auto-generated method stub
         List<Order> orders = oDao.findAll();
-        if(orders.size()>0)
+        if(!orders.isEmpty())
             return orders;
         else
             throw new OrderException("No Orders exists on your account");
@@ -117,7 +117,7 @@ public class OrderServiceImpl implements OrderService{
     @Override
     public Order cancelOrderByOrderId(Integer OrderId,String token) throws OrderException {
         Order order= oDao.findById(OrderId).orElseThrow(()->new OrderException("No order exists with given OrderId "+ OrderId));
-        if(order.getCustomer().getCustomerId()==cs.getLoggedInCustomerDetails(token).getCustomerId()) {
+        if(Objects.equals(order.getCustomer().getCustomerId(), cs.getLoggedInCustomerDetails(token).getCustomerId())) {
             if(order.getOrderStatus()==OrderStatusValues.PENDING) {
                 order.setOrderStatus(OrderStatusValues.CANCELLED);
                 oDao.save(order);
@@ -150,7 +150,7 @@ public class OrderServiceImpl implements OrderService{
     }
 
     @Override
-    public Order updateOrderByOrder(OrderDTO orderdto, Integer OrderId,String token) throws OrderException,LoginException {
+    public Order updateOrderByOrder(OrderDTO orderdto, Integer OrderId,String token) throws OrderException, LoginException, javax.security.auth.login.LoginException {
         Order existingOrder= oDao.findById(OrderId).orElseThrow(()->new OrderException("No order exists with given OrderId "+ OrderId));
 
         if(Objects.equals(existingOrder.getCustomer().getCustomerId(), cs.getLoggedInCustomerDetails(token).getCustomerId())) {
