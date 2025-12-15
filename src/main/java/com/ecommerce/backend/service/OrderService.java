@@ -9,7 +9,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 public interface OrderService {
-    public Order saveOrder(OrderDTO odto, String token) throws LoginException, OrderException;
+    public Order saveOrder(OrderDTO odto, String token) throws LoginException, OrderException, javax.security.auth.login.LoginException;
 
     public Order getOrderByOrderId(Integer OrderId) throws OrderException;
 
@@ -17,7 +17,7 @@ public interface OrderService {
 
     public Order cancelOrderByOrderId(Integer OrderId,String token) throws OrderException;
 
-    public Order updateOrderByOrder(OrderDTO order,Integer OrderId,String token) throws OrderException,LoginException;
+    public Order updateOrderByOrder(OrderDTO order,Integer OrderId,String token) throws OrderException, LoginException, javax.security.auth.login.LoginException;
 
     public List<Order> getAllOrdersByDate(LocalDate date) throws OrderException;
 
