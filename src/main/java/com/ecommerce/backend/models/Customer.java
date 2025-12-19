@@ -1,7 +1,7 @@
 package com.ecommerce.backend.models;
 
 import jakarta.persistence.*;
-import jakarta.persistence.criteria.Order;
+import com.ecommerce.backend.models.Order;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;

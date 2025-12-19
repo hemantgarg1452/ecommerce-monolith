@@ -391,7 +391,7 @@ public class CustomerServiceImpl implements CustomerService{
 
         Customer existingCustomer = opt.get();
 
-        List<jakarta.persistence.criteria.Order> myOrders = existingCustomer.getOrders();
+        List<Order> myOrders = existingCustomer.getOrders();
 
         if(myOrders.isEmpty())
             throw new CustomerException("No orders found");
