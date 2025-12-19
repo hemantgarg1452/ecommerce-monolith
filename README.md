@@ -118,3 +118,11 @@
 * `POST /order/place` : Places a new order based on cart items
 * `PUT /orders/{id}` : Updates a pending order
 * `DELETE /orders/{id}` : Cancels an order
+
+
+## APIs Complete
+
+<img width="1769" height="212" alt="Screenshot 2025-12-19 145047" src="https://github.com/user-attachments/assets/74d33b24-024a-4e61-a5f9-9926c7e4ede9" />
+
+
+
