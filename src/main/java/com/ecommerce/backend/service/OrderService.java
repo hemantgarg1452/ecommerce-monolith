@@ -2,6 +2,7 @@ package com.ecommerce.backend.service;
 
 import com.ecommerce.backend.dto.OrderDTO;
 import com.ecommerce.backend.exception.LoginException;
+import com.ecommerce.backend.exception.OrderException;
 import com.ecommerce.backend.models.Customer;
 import com.ecommerce.backend.models.Order;
 

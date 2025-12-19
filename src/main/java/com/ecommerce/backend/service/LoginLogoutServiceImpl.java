@@ -5,6 +5,7 @@ import com.ecommerce.backend.dto.SellerDTO;
 import com.ecommerce.backend.dto.SessionDTO;
 import com.ecommerce.backend.exception.CustomerNotFoundException;
 import com.ecommerce.backend.exception.LoginException;
+import com.ecommerce.backend.exception.SellerNotFoundException;
 import com.ecommerce.backend.models.Customer;
 import com.ecommerce.backend.models.Seller;
 import com.ecommerce.backend.models.UserSession;
