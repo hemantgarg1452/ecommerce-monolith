@@ -20,6 +20,10 @@
 * Cart Module
 * Order Module
 
+## ER Diagram
+
+![E-Commerce API ER Diagram](https://github.com/user-attachments/assets/43ca5fbc-fb87-4b68-9781-57d036226c34)
+
 ## Features
 
 * Customer and Seller authentication & validation with session token having validity of 1 hour for security purposes
